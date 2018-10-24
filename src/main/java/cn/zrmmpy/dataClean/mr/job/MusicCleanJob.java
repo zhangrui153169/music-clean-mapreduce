@@ -1,6 +1,6 @@
-package cn.xpleaf.dataClean.mr.job;
+package cn.zrmmpy.dataClean.mr.job;
 
-import cn.xpleaf.dataClean.mr.mapper.AccessLogCleanMapper;
+import cn.zrmmpy.dataClean.mr.mapper.MusicCleanMapper;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.NullWritable;
@@ -12,18 +12,18 @@ import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.apache.hadoop.mapreduce.lib.output.TextOutputFormat;
 
 /**
- * 清洗用户access日志信息
+ * 清洗音乐信息
  * 主要的驱动程序
  *      主要用作组织mapper和reducer的运行
  *
  * 输入参数：
- * hdfs://ns1/input/data-clean/access/2018/04/08 hdfs://ns1/output/data-clean/access
+ * 如：hdfs://ns1/input/data-clean/access/2018/04/08 hdfs://ns1/output/data-clean/access
  * 即inputPath和outputPath
- * 目前outputPath统一到hdfs://ns1/output/data-clean/access
- * 而inputPath则不确定，因为我们的日志采集是按天来生成一个目录的
- * 所以上面的inputPath只是清洗2018-04-08这一天的
+ * 目前outputPath统一到			??????
+
+
  */
-public class AccessLogCleanJob {
+public class MusicCleanJob {
     public static void main(String[] args) throws Exception {
 
         if(args == null || args.length < 2) {
@@ -34,16 +34,16 @@ public class AccessLogCleanJob {
         Path outputPath = new Path(args[args.length - 1]);
 
         Configuration conf = new Configuration();
-        String jobName = AccessLogCleanJob.class.getSimpleName();
+        String jobName = MusicCleanJob.class.getSimpleName();
         Job job = Job.getInstance(conf, jobName);
-        job.setJarByClass(AccessLogCleanJob.class);
+        job.setJarByClass(MusicCleanJob.class);
 
         // 设置mr的输入参数
         for( int i = 0; i < args.length - 1; i++) {
             FileInputFormat.addInputPath(job, new Path(args[i]));
         }
         job.setInputFormatClass(TextInputFormat.class);
-        job.setMapperClass(AccessLogCleanMapper.class);
+        job.setMapperClass(MusicCleanMapper.class);
         job.setMapOutputKeyClass(NullWritable.class);
         job.setMapOutputValueClass(Text.class);
         // 设置mr的输出参数
