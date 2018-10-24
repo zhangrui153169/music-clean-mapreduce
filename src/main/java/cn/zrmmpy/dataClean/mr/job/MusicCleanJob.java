@@ -1,6 +1,9 @@
 package cn.zrmmpy.dataClean.mr.job;
 
+
 import cn.zrmmpy.dataClean.mr.mapper.MusicCleanMapper;
+import cn.zrmmpy.dataClean.mr.reducer.MusicCleanReducer;
+
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.NullWritable;
@@ -51,9 +54,10 @@ public class MusicCleanJob {
         FileOutputFormat.setOutputPath(job, outputPath);
         job.setOutputFormatClass(TextOutputFormat.class);
 
-        job.setOutputKeyClass(NullWritable.class);
+        job.setReducerClass(MusicCleanReducer.class);
+        job.setOutputKeyClass(Text.class);
         job.setOutputValueClass(Text.class);
-        job.setNumReduceTasks(0);   // map only操作，没有reducer
+        job.setNumReduceTasks(1);
 
         job.waitForCompletion(true);
     }
