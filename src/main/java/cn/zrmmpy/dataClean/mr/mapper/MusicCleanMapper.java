@@ -25,7 +25,7 @@ public class MusicCleanMapper extends Mapper<LongWritable, Text, NullWritable, T
     
     @Override
     protected void setup(Context context) throws IOException, InterruptedException {
-        musicid = Integer.getInteger(link.split("\\")[4]);
+       
     }
 
 
@@ -44,7 +44,7 @@ public class MusicCleanMapper extends Mapper<LongWritable, Text, NullWritable, T
         link = fields[4];
 
         description = fields[5];
-
+        musicid = Integer.getInteger(link.split("/")[4]);
         MusicWritable access = new MusicWritable(musicid, songname,singer,picture,averating,
     			description,categoryid,link);
         context.write(NullWritable.get(), new Text(access.toString()));
