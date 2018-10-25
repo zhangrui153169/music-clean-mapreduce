@@ -22,7 +22,7 @@ import org.apache.hadoop.mapreduce.lib.output.TextOutputFormat;
  * 输入参数：
  * 如：hdfs://ns1/input/data-clean/access/2018/04/08 hdfs://ns1/output/data-clean/access
  * 即inputPath和outputPath
- * 目前outputPath统一到			???????
+ * 目前outputPath统一到			????????
 
 
  */
