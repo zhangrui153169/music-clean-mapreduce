@@ -37,7 +37,7 @@ public class MusicCleanMapper extends Mapper<LongWritable, Text, NullWritable, T
 
     @Override
     protected void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
-        fields = value.toString().split("\n");
+        fields = value.toString().split("@@");
         if (fields == null || fields.length<8) { // 有异常数据
             return;
         }
