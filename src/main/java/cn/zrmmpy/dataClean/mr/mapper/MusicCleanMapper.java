@@ -30,7 +30,7 @@ public class MusicCleanMapper extends Mapper<LongWritable, Text, NullWritable, T
     private String link;//歌曲链接
     
     @Override
-    protected void setup(Context context) throws IOException, InterruptedException {
+    protected void setup(Context context) throws IOException,  InterruptedException {
        
     }
 
