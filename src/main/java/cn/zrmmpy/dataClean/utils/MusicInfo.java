@@ -1,23 +1,27 @@
 package cn.zrmmpy.dataClean.utils;
 
+import java.util.Date;
 
 public class MusicInfo {
-    private Integer musicid;//歌曲编号
+    private String songid;//歌曲编号
     private String songname;//歌曲名字
+    private Date releasedate;//出版时间
     private String singer;//歌曲作者
     private String picture;//歌曲图片
-    private Integer averating;//歌曲评分
+    private String averating;//歌曲评分
     private String description;//歌曲短评
-    private Integer categoryid;//分类编号
+    private String categoryid;//分类编号
     private String link;//歌曲链接
 
     public MusicInfo(){}
 
-	public MusicInfo(Integer musicid, String songname, String singer, String picture, Integer averating,
-			String description, Integer categoryid, String link) {
+
+	public MusicInfo(String musicid, String songname, Date releasedate, String singer, String picture,
+			String averating, String description, String categoryid, String link) {
 		super();
-		this.musicid = musicid;
+		this.songid = musicid;
 		this.songname = songname;
+		this.releasedate = releasedate;
 		this.singer = singer;
 		this.picture = picture;
 		this.averating = averating;
@@ -26,8 +30,9 @@ public class MusicInfo {
 		this.link = link;
 	}
 
-	public Integer getMusicid() {
-		return musicid;
+
+	public String getMusicid() {
+		return songid;
 	}
 
 	public String getSongname() {
@@ -42,7 +47,7 @@ public class MusicInfo {
 		return picture;
 	}
 
-	public Integer getAverating() {
+	public String getAverating() {
 		return averating;
 	}
 
@@ -50,13 +55,19 @@ public class MusicInfo {
 		return description;
 	}
 
-	public Integer getCategoryid() {
+	public String getCategoryid() {
 		return categoryid;
 	}
 
 	public String getLink() {
 		return link;
 	}
+
+	public Date getReleasedate() {
+		return releasedate;
+	}
+
+
 
 
 

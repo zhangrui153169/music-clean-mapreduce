@@ -55,7 +55,7 @@ public class MusicCleanJob {
         job.setOutputFormatClass(TextOutputFormat.class);
 
         job.setReducerClass(MusicCleanReducer.class);
-        job.setOutputKeyClass(Text.class);
+        job.setOutputKeyClass(NullWritable.class);
         job.setOutputValueClass(Text.class);
         job.setNumReduceTasks(1);
 
