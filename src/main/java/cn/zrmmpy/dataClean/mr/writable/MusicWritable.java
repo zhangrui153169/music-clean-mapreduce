@@ -29,9 +29,9 @@ public class MusicWritable {
 
 	@Override
 	public String toString() {
-		return "MusicWritable [songid=" + songid + ", songname=" + songname + ", releasedate=" + releasedate
-				+ ", singer=" + singer + ", picture=" + picture + ", averating=" + averating + ", description="
-				+ description + ", categoryid=" + categoryid + ", link=" + link + "]";
+		return songid + "@@" + songname + "@@" + releasedate
+				+ "@@" + singer + "@@" + picture + "@@" + averating + "@@"
+				+ description + "@@" + categoryid + "@@" + link;
 	}
 
 	
